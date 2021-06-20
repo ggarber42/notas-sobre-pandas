@@ -21762,6 +21762,2446 @@ dtype: object</pre>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Aula-7---Sorting-(ordenando)-dados">Aula 7 - Sorting (ordenando) dados<a class="anchor-link" href="#Aula-7---Sorting-(ordenando)-dados">&#182;</a></h1>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[126]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s2">&quot;first&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Corey&quot;</span><span class="p">,</span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span><span class="s2">&quot;John&quot;</span><span class="p">,</span><span class="s2">&quot;Adam&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;last&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Schafer&quot;</span><span class="p">,</span><span class="s2">&quot;Doe&quot;</span><span class="p">,</span><span class="s2">&quot;Doe&quot;</span><span class="p">,</span><span class="s2">&quot;Doe&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;email&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;CoreyMSchafer@gmail.com&quot;</span><span class="p">,</span><span class="s2">&quot;JaneDoe@email.com&quot;</span><span class="p">,</span><span class="s2">&quot;JohnDoe@email.com&quot;</span><span class="p">,</span><span class="s2">&quot;adam@email.com&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df_people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[127]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_people</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[127]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Corey</td>
+      <td>Schafer</td>
+      <td>CoreyMSchafer@gmail.com</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adam</td>
+      <td>Doe</td>
+      <td>adam@email.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>ordenando pelo último nome</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[128]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_people</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[128]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adam</td>
+      <td>Doe</td>
+      <td>adam@email.com</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Corey</td>
+      <td>Schafer</td>
+      <td>CoreyMSchafer@gmail.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[129]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_people</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[129]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Corey</td>
+      <td>Schafer</td>
+      <td>CoreyMSchafer@gmail.com</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adam</td>
+      <td>Doe</td>
+      <td>adam@email.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>ordenando em múltiplas colunas, cada uma com ordenação diferente</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[130]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_people</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">,</span><span class="s1">&#39;first&#39;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[130]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>Adam</td>
+      <td>Doe</td>
+      <td>adam@email.com</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Corey</td>
+      <td>Schafer</td>
+      <td>CoreyMSchafer@gmail.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[131]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_people</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">,</span><span class="s1">&#39;first&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[131]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Corey</td>
+      <td>Schafer</td>
+      <td>CoreyMSchafer@gmail.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adam</td>
+      <td>Doe</td>
+      <td>adam@email.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>last name está descrescente e first crescente, passando valores booleanos correspodentes no filtro</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[132]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_people</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;last&#39;</span><span class="p">,</span><span class="s1">&#39;first&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[132]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Corey</td>
+      <td>Schafer</td>
+      <td>CoreyMSchafer@gmail.com</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adam</td>
+      <td>Doe</td>
+      <td>adam@email.com</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[133]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_people</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[133]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Corey</td>
+      <td>Schafer</td>
+      <td>CoreyMSchafer@gmail.com</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adam</td>
+      <td>Doe</td>
+      <td>adam@email.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[134]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_people</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[134]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Corey</td>
+      <td>Schafer</td>
+      <td>CoreyMSchafer@gmail.com</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Doe</td>
+      <td>JaneDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>JohnDoe@email.com</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adam</td>
+      <td>Doe</td>
+      <td>adam@email.com</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[141]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[141]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>Index([&#39;MainBranch&#39;, &#39;Hobbyist&#39;, &#39;OpenSourcer&#39;, &#39;OpenSource&#39;, &#39;Employment&#39;,
+       &#39;Country&#39;, &#39;Student&#39;, &#39;EdLevel&#39;, &#39;UndergradMajor&#39;, &#39;EduOther&#39;,
+       &#39;OrgSize&#39;, &#39;DevType&#39;, &#39;YearsCode&#39;, &#39;Age1stCode&#39;, &#39;YearsCodePro&#39;,
+       &#39;CareerSat&#39;, &#39;JobSat&#39;, &#39;MgrIdiot&#39;, &#39;MgrMoney&#39;, &#39;MgrWant&#39;, &#39;JobSeek&#39;,
+       &#39;LastHireDate&#39;, &#39;LastInt&#39;, &#39;FizzBuzz&#39;, &#39;JobFactors&#39;, &#39;ResumeUpdate&#39;,
+       &#39;CurrencySymbol&#39;, &#39;CurrencyDesc&#39;, &#39;CompTotal&#39;, &#39;CompFreq&#39;, &#39;Salary_USD&#39;,
+       &#39;WorkWeekHrs&#39;, &#39;WorkPlan&#39;, &#39;WorkChallenge&#39;, &#39;WorkRemote&#39;, &#39;WorkLoc&#39;,
+       &#39;ImpSyn&#39;, &#39;CodeRev&#39;, &#39;CodeRevHrs&#39;, &#39;UnitTests&#39;, &#39;PurchaseHow&#39;,
+       &#39;PurchaseWhat&#39;, &#39;LanguageWorkedWith&#39;, &#39;LanguageDesireNextYear&#39;,
+       &#39;DatabaseWorkedWith&#39;, &#39;DatabaseDesireNextYear&#39;, &#39;PlatformWorkedWith&#39;,
+       &#39;PlatformDesireNextYear&#39;, &#39;WebFrameWorkedWith&#39;,
+       &#39;WebFrameDesireNextYear&#39;, &#39;MiscTechWorkedWith&#39;,
+       &#39;MiscTechDesireNextYear&#39;, &#39;DevEnviron&#39;, &#39;OpSys&#39;, &#39;Containers&#39;,
+       &#39;BlockchainOrg&#39;, &#39;BlockchainIs&#39;, &#39;BetterLife&#39;, &#39;ITperson&#39;, &#39;OffOn&#39;,
+       &#39;SocialMedia&#39;, &#39;Extraversion&#39;, &#39;ScreenName&#39;, &#39;SOVisit1st&#39;,
+       &#39;SOVisitFreq&#39;, &#39;SOVisitTo&#39;, &#39;SOFindAnswer&#39;, &#39;SOTimeSaved&#39;,
+       &#39;SOHowMuchTime&#39;, &#39;SOAccount&#39;, &#39;SOPartFreq&#39;, &#39;SOJobs&#39;, &#39;EntTeams&#39;,
+       &#39;SOComm&#39;, &#39;WelcomeChange&#39;, &#39;SONewContent&#39;, &#39;Age&#39;, &#39;Gender&#39;, &#39;Trans&#39;,
+       &#39;Sexuality&#39;, &#39;Ethnicity&#39;, &#39;Dependents&#39;, &#39;SurveyLength&#39;, &#39;SurveyEase&#39;],
+      dtype=&#39;object&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[145]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span><span class="s1">&#39;Salary_USD&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span><span class="s1">&#39;Salary_USD&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[145]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>Salary_USD</th>
+    </tr>
+    <tr>
+      <th>Respondent</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>63129</th>
+      <td>Afghanistan</td>
+      <td>1000000.0</td>
+    </tr>
+    <tr>
+      <th>50499</th>
+      <td>Afghanistan</td>
+      <td>153216.0</td>
+    </tr>
+    <tr>
+      <th>39258</th>
+      <td>Afghanistan</td>
+      <td>19152.0</td>
+    </tr>
+    <tr>
+      <th>58450</th>
+      <td>Afghanistan</td>
+      <td>17556.0</td>
+    </tr>
+    <tr>
+      <th>7085</th>
+      <td>Afghanistan</td>
+      <td>14364.0</td>
+    </tr>
+    <tr>
+      <th>22450</th>
+      <td>Afghanistan</td>
+      <td>7980.0</td>
+    </tr>
+    <tr>
+      <th>48436</th>
+      <td>Afghanistan</td>
+      <td>4464.0</td>
+    </tr>
+    <tr>
+      <th>10746</th>
+      <td>Afghanistan</td>
+      <td>3996.0</td>
+    </tr>
+    <tr>
+      <th>8149</th>
+      <td>Afghanistan</td>
+      <td>1596.0</td>
+    </tr>
+    <tr>
+      <th>29736</th>
+      <td>Afghanistan</td>
+      <td>1116.0</td>
+    </tr>
+    <tr>
+      <th>28638</th>
+      <td>Afghanistan</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>722</th>
+      <td>Afghanistan</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>62168</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>85715</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50767</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2782</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>63019</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6417</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>40000</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>88731</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>85825</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>62525</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>49702</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>33178</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>60946</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>86362</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>88582</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>86932</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7353</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>26340</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>58760</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>74386</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>29045</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>51859</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>45854</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>47110</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>44403</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>80926</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>59560</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>60569</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>37802</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>43106</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12310</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>87091</th>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>38308</th>
+      <td>Albania</td>
+      <td>187668.0</td>
+    </tr>
+    <tr>
+      <th>3787</th>
+      <td>Albania</td>
+      <td>114550.0</td>
+    </tr>
+    <tr>
+      <th>9270</th>
+      <td>Albania</td>
+      <td>74474.0</td>
+    </tr>
+    <tr>
+      <th>6716</th>
+      <td>Albania</td>
+      <td>60000.0</td>
+    </tr>
+    <tr>
+      <th>10303</th>
+      <td>Albania</td>
+      <td>57300.0</td>
+    </tr>
+    <tr>
+      <th>66280</th>
+      <td>Albania</td>
+      <td>41244.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>procurando os maiores valores de salario</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[147]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salary_USD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[147]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>Respondent
+25983    2000000.0
+87896    2000000.0
+22013    2000000.0
+28243    2000000.0
+72732    2000000.0
+78151    2000000.0
+80200    2000000.0
+52132    2000000.0
+75561    2000000.0
+32250    2000000.0
+Name: Salary_USD, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[155]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span><span class="s1">&#39;LanguageWorkedWith&#39;</span><span class="p">,</span><span class="s1">&#39;Salary_USD&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;Salary_USD&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[155]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>LanguageWorkedWith</th>
+      <th>Salary_USD</th>
+    </tr>
+    <tr>
+      <th>Respondent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>25983</th>
+      <td>Canada</td>
+      <td>Bash/Shell/PowerShell;C++;C#;HTML/CSS;JavaScri...</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>87896</th>
+      <td>Germany</td>
+      <td>HTML/CSS;JavaScript;PHP;SQL</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>22013</th>
+      <td>India</td>
+      <td>Assembly;Bash/Shell/PowerShell;C;C++;Java;Java...</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>28243</th>
+      <td>India</td>
+      <td>C++;C#;Java;JavaScript;Objective-C;Python</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>72732</th>
+      <td>India</td>
+      <td>Java;Python;SQL</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>78151</th>
+      <td>Mexico</td>
+      <td>C#;HTML/CSS;JavaScript;SQL;TypeScript</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>80200</th>
+      <td>Netherlands</td>
+      <td>Objective-C;Swift</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>52132</th>
+      <td>Peru</td>
+      <td>C++;HTML/CSS;JavaScript;Python;SQL;TypeScript</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>75561</th>
+      <td>Singapore</td>
+      <td>Bash/Shell/PowerShell;HTML/CSS;JavaScript;Pyth...</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>32250</th>
+      <td>Switzerland</td>
+      <td>C#;Go;HTML/CSS;JavaScript;Python;SQL;TypeScript</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>84390</th>
+      <td>United Kingdom</td>
+      <td>Bash/Shell/PowerShell;C++;JavaScript;Python;SQ...</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>78960</th>
+      <td>United States</td>
+      <td>Bash/Shell/PowerShell;C#;HTML/CSS;Python;SQL</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>3133</th>
+      <td>United States</td>
+      <td>Bash/Shell/PowerShell;Go;HTML/CSS;JavaScript;P...</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>2940</th>
+      <td>United States</td>
+      <td>C++;Go</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>78853</th>
+      <td>United States</td>
+      <td>Bash/Shell/PowerShell;C#;F#;HTML/CSS;Java;Java...</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>3120</th>
+      <td>United States</td>
+      <td>Bash/Shell/PowerShell;Clojure;HTML/CSS;Java;Ja...</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>87410</th>
+      <td>United States</td>
+      <td>Bash/Shell/PowerShell;C;C++;HTML/CSS;Python</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>17802</th>
+      <td>United States</td>
+      <td>HTML/CSS;JavaScript;SQL;Other(s):</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>17811</th>
+      <td>United States</td>
+      <td>Python;SQL</td>
+      <td>2000000.0</td>
+    </tr>
+    <tr>
+      <th>17056</th>
+      <td>United States</td>
+      <td>HTML/CSS;JavaScript;PHP;Python;SQL;Swift</td>
+      <td>2000000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[153]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="s1">&#39;Salary_USD&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[153]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MainBranch</th>
+      <th>Hobbyist</th>
+      <th>OpenSourcer</th>
+      <th>OpenSource</th>
+      <th>Employment</th>
+      <th>Country</th>
+      <th>Student</th>
+      <th>EdLevel</th>
+      <th>UndergradMajor</th>
+      <th>EduOther</th>
+      <th>OrgSize</th>
+      <th>DevType</th>
+      <th>YearsCode</th>
+      <th>Age1stCode</th>
+      <th>YearsCodePro</th>
+      <th>CareerSat</th>
+      <th>JobSat</th>
+      <th>MgrIdiot</th>
+      <th>MgrMoney</th>
+      <th>MgrWant</th>
+      <th>JobSeek</th>
+      <th>LastHireDate</th>
+      <th>LastInt</th>
+      <th>FizzBuzz</th>
+      <th>JobFactors</th>
+      <th>ResumeUpdate</th>
+      <th>CurrencySymbol</th>
+      <th>CurrencyDesc</th>
+      <th>CompTotal</th>
+      <th>CompFreq</th>
+      <th>Salary_USD</th>
+      <th>WorkWeekHrs</th>
+      <th>WorkPlan</th>
+      <th>WorkChallenge</th>
+      <th>WorkRemote</th>
+      <th>WorkLoc</th>
+      <th>ImpSyn</th>
+      <th>CodeRev</th>
+      <th>CodeRevHrs</th>
+      <th>UnitTests</th>
+      <th>PurchaseHow</th>
+      <th>PurchaseWhat</th>
+      <th>LanguageWorkedWith</th>
+      <th>LanguageDesireNextYear</th>
+      <th>DatabaseWorkedWith</th>
+      <th>DatabaseDesireNextYear</th>
+      <th>PlatformWorkedWith</th>
+      <th>PlatformDesireNextYear</th>
+      <th>WebFrameWorkedWith</th>
+      <th>WebFrameDesireNextYear</th>
+      <th>MiscTechWorkedWith</th>
+      <th>MiscTechDesireNextYear</th>
+      <th>DevEnviron</th>
+      <th>OpSys</th>
+      <th>Containers</th>
+      <th>BlockchainOrg</th>
+      <th>BlockchainIs</th>
+      <th>BetterLife</th>
+      <th>ITperson</th>
+      <th>OffOn</th>
+      <th>SocialMedia</th>
+      <th>Extraversion</th>
+      <th>ScreenName</th>
+      <th>SOVisit1st</th>
+      <th>SOVisitFreq</th>
+      <th>SOVisitTo</th>
+      <th>SOFindAnswer</th>
+      <th>SOTimeSaved</th>
+      <th>SOHowMuchTime</th>
+      <th>SOAccount</th>
+      <th>SOPartFreq</th>
+      <th>SOJobs</th>
+      <th>EntTeams</th>
+      <th>SOComm</th>
+      <th>WelcomeChange</th>
+      <th>SONewContent</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Trans</th>
+      <th>Sexuality</th>
+      <th>Ethnicity</th>
+      <th>Dependents</th>
+      <th>SurveyLength</th>
+      <th>SurveyEase</th>
+    </tr>
+    <tr>
+      <th>Respondent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>28638</th>
+      <td>I am a developer by profession</td>
+      <td>True</td>
+      <td>Less than once a month but more than once per ...</td>
+      <td>OSS is, on average, of HIGHER quality than pro...</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+      <td>Other doctoral degree (Ph.D, Ed.D., etc.)</td>
+      <td>I never declared a major</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>36</td>
+      <td>13</td>
+      <td>16</td>
+      <td>Very dissatisfied</td>
+      <td>Very dissatisfied</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I am not interested in new job opportunities</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>AFN</td>
+      <td>Afghan afghani</td>
+      <td>3.0</td>
+      <td>Monthly</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Bash/Shell/PowerShell;C;C++;Java;Objective-C;O...</td>
+      <td>Bash/Shell/PowerShell;C;C++;Java;Objective-C;O...</td>
+      <td>MySQL;SQLite</td>
+      <td>MySQL;SQLite</td>
+      <td>Android;iOS;Linux;MacOS</td>
+      <td>Android;iOS;Linux</td>
+      <td>jQuery</td>
+      <td>NaN</td>
+      <td>TensorFlow;Unity 3D</td>
+      <td>Hadoop;TensorFlow;Unity 3D</td>
+      <td>Emacs</td>
+      <td>Linux-based</td>
+      <td>I do not use containers</td>
+      <td>NaN</td>
+      <td>Useful for immutable record keeping outside of...</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>In real life (in person)</td>
+      <td>Username</td>
+      <td>2008</td>
+      <td>Daily or almost daily</td>
+      <td>Find answers to specific questions</td>
+      <td>6-10 times per week</td>
+      <td>The other resource was much faster</td>
+      <td>11-30 minutes</td>
+      <td>Yes</td>
+      <td>Less than once per month or monthly</td>
+      <td>Yes</td>
+      <td>No, I've heard of them, but I am not part of a...</td>
+      <td>No, not at all</td>
+      <td>A lot less welcome now than last year</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Too long</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>722</th>
+      <td>I am a developer by profession</td>
+      <td>False</td>
+      <td>Less than once a month but more than once per ...</td>
+      <td>The quality of OSS and closed source software ...</td>
+      <td>NaN</td>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Less than 1 year</td>
+      <td>Younger than 5 years</td>
+      <td>Less than 1 year</td>
+      <td>Very satisfied</td>
+      <td>Very satisfied</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I am not interested in new job opportunities</td>
+      <td>NA - I am an independent contractor or self em...</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>I heard about a job opportunity (from a recrui...</td>
+      <td>AFN</td>
+      <td>Afghan afghani</td>
+      <td>1.0</td>
+      <td>Yearly</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Less than once per month / Never</td>
+      <td>Other place, such as a coworking space or cafe</td>
+      <td>Far above average</td>
+      <td>Yes, because I see value in code review</td>
+      <td>1.0</td>
+      <td>No, and I'm glad we don't</td>
+      <td>NaN</td>
+      <td>I have little or no influence</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>SIGH</td>
+      <td>What?</td>
+      <td>NaN</td>
+      <td>Neither</td>
+      <td>NaN</td>
+      <td>2008</td>
+      <td>Multiple times per day</td>
+      <td>NaN</td>
+      <td>More than 10 times per week</td>
+      <td>The other resource was much faster</td>
+      <td>60+ minutes</td>
+      <td>Not sure / can't remember</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Not sure</td>
+      <td>Not applicable - I did not use Stack Overflow ...</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Too long</td>
+      <td>Difficult</td>
+    </tr>
+    <tr>
+      <th>13825</th>
+      <td>I am a developer by profession</td>
+      <td>True</td>
+      <td>Never</td>
+      <td>The quality of OSS and closed source software ...</td>
+      <td>NaN</td>
+      <td>Algeria</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>13</td>
+      <td>83</td>
+      <td>Less than 1 year</td>
+      <td>Very dissatisfied</td>
+      <td>Very satisfied</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I am actively looking for a job</td>
+      <td>NA - I am an independent contractor or self em...</td>
+      <td>Complete a take-home project;Solve a brain-tea...</td>
+      <td>Yes</td>
+      <td>Financial performance or funding status of the...</td>
+      <td>Something else changed (education, award, medi...</td>
+      <td>AFN</td>
+      <td>Afghan afghani</td>
+      <td>1.0</td>
+      <td>Yearly</td>
+      <td>0.0</td>
+      <td>168.0</td>
+      <td>NaN</td>
+      <td>Being tasked with non-development work;Non-wor...</td>
+      <td>About half the time</td>
+      <td>Home</td>
+      <td>Far above average</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>Yes, it's part of our process</td>
+      <td>NaN</td>
+      <td>I have a great deal of influence</td>
+      <td>Other(s):</td>
+      <td>Other(s):</td>
+      <td>Other(s):</td>
+      <td>Other(s):</td>
+      <td>Other(s):</td>
+      <td>Other(s):</td>
+      <td>Other(s):</td>
+      <td>Other(s):</td>
+      <td>Other(s):</td>
+      <td>Other(s):</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I do not use containers</td>
+      <td>NaN</td>
+      <td>An irresponsible use of resources</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Neither</td>
+      <td>NaN</td>
+      <td>2015</td>
+      <td>A few times per month or weekly</td>
+      <td>Find answers to specific questions</td>
+      <td>1-2 times per week</td>
+      <td>They were about the same</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>I have never participated in Q&amp;A on Stack Over...</td>
+      <td>No, I knew that Stack Overflow had a job board...</td>
+      <td>No, and I don't know what those are</td>
+      <td>No, not at all</td>
+      <td>A lot less welcome now than last year</td>
+      <td>NaN</td>
+      <td>56.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>Too short</td>
+      <td>Easy</td>
+    </tr>
+    <tr>
+      <th>40913</th>
+      <td>I am a developer by profession</td>
+      <td>True</td>
+      <td>Less than once per year</td>
+      <td>The quality of OSS and closed source software ...</td>
+      <td>Employed full-time</td>
+      <td>Armenia</td>
+      <td>No</td>
+      <td>Bachelor’s degree (BA, BS, B.Eng., etc.)</td>
+      <td>Computer science, computer engineering, or sof...</td>
+      <td>Taught yourself a new language, framework, or ...</td>
+      <td>2-9 employees</td>
+      <td>Developer, desktop or enterprise applications;...</td>
+      <td>7</td>
+      <td>15</td>
+      <td>4</td>
+      <td>Slightly satisfied</td>
+      <td>Slightly satisfied</td>
+      <td>Very confident</td>
+      <td>Not sure</td>
+      <td>Not sure</td>
+      <td>I am not interested in new job opportunities</td>
+      <td>Less than a year ago</td>
+      <td>Write any code;Write code by hand (e.g., on a ...</td>
+      <td>No</td>
+      <td>Industry that I'd be working in;Languages, fra...</td>
+      <td>Something else changed (education, award, medi...</td>
+      <td>AMD</td>
+      <td>Armenian dram</td>
+      <td>0.0</td>
+      <td>Monthly</td>
+      <td>0.0</td>
+      <td>40.0</td>
+      <td>There's no schedule or spec; I work on what se...</td>
+      <td>Meetings;Non-work commitments (parenting, scho...</td>
+      <td>Less than half the time, but at least one day ...</td>
+      <td>Office</td>
+      <td>A little above average</td>
+      <td>Yes, because I see value in code review</td>
+      <td>3.0</td>
+      <td>No, and I'm glad we don't</td>
+      <td>Developers and management have nearly equal in...</td>
+      <td>I have a great deal of influence</td>
+      <td>Bash/Shell/PowerShell;C;C++;Java;JavaScript;Py...</td>
+      <td>C;C++;Java;Python;SQL;TypeScript</td>
+      <td>Elasticsearch;MariaDB;MongoDB;MySQL;Redis</td>
+      <td>MariaDB;MongoDB;MySQL</td>
+      <td>Arduino;AWS;Docker;Linux;MacOS;Raspberry Pi;Sl...</td>
+      <td>Arduino;Linux;MacOS;Raspberry Pi</td>
+      <td>ASP.NET;Django;Flask</td>
+      <td>Django;Flask</td>
+      <td>.NET;Node.js;TensorFlow;Torch/PyTorch</td>
+      <td>Node.js</td>
+      <td>IntelliJ;IPython / Jupyter;Sublime Text;Vim</td>
+      <td>Linux-based</td>
+      <td>Production</td>
+      <td>Not at all</td>
+      <td>A passing fad</td>
+      <td>No</td>
+      <td>SIGH</td>
+      <td>Yes</td>
+      <td>Facebook</td>
+      <td>In real life (in person)</td>
+      <td>Username</td>
+      <td>2013</td>
+      <td>Multiple times per day</td>
+      <td>Find answers to specific questions;Learn how t...</td>
+      <td>3-5 times per week</td>
+      <td>Stack Overflow was much faster</td>
+      <td>0-10 minutes</td>
+      <td>Yes</td>
+      <td>Less than once per month or monthly</td>
+      <td>No, I knew that Stack Overflow had a job board...</td>
+      <td>No, I've heard of them, but I am not part of a...</td>
+      <td>No, not really</td>
+      <td>Just as welcome now as I felt last year</td>
+      <td>Tech articles written by other developers</td>
+      <td>22.0</td>
+      <td>Man</td>
+      <td>No</td>
+      <td>Straight / Heterosexual</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>Appropriate in length</td>
+      <td>Easy</td>
+    </tr>
+    <tr>
+      <th>30630</th>
+      <td>I am a developer by profession</td>
+      <td>True</td>
+      <td>Less than once a month but more than once per ...</td>
+      <td>The quality of OSS and closed source software ...</td>
+      <td>Employed full-time</td>
+      <td>Australia</td>
+      <td>No</td>
+      <td>Master’s degree (MA, MS, M.Eng., MBA, etc.)</td>
+      <td>NaN</td>
+      <td>Taken an online course in programming or softw...</td>
+      <td>2-9 employees</td>
+      <td>Database administrator;Developer, back-end;Dev...</td>
+      <td>35</td>
+      <td>7</td>
+      <td>30</td>
+      <td>Neither satisfied nor dissatisfied</td>
+      <td>Very satisfied</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I am not interested in new job opportunities</td>
+      <td>NA - I am an independent contractor or self em...</td>
+      <td>Interview with people in peer roles;Interview ...</td>
+      <td>No</td>
+      <td>Industry that I'd be working in;Office environ...</td>
+      <td>I heard about a job opportunity (from a recrui...</td>
+      <td>AUD</td>
+      <td>Australian dollar</td>
+      <td>0.0</td>
+      <td>Yearly</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>There's no schedule or spec; I work on what se...</td>
+      <td>Distracting work environment;Non-work commitme...</td>
+      <td>It's complicated</td>
+      <td>Other place, such as a coworking space or cafe</td>
+      <td>A little above average</td>
+      <td>Yes, because I see value in code review</td>
+      <td>10.0</td>
+      <td>No, but I think we should</td>
+      <td>NaN</td>
+      <td>I have a great deal of influence</td>
+      <td>Bash/Shell/PowerShell;HTML/CSS;JavaScript;Ruby</td>
+      <td>Elixir;Ruby;TypeScript</td>
+      <td>PostgreSQL</td>
+      <td>PostgreSQL</td>
+      <td>AWS;iOS</td>
+      <td>Android;AWS;iOS</td>
+      <td>Ruby on Rails;Vue.js</td>
+      <td>Ruby on Rails;Vue.js</td>
+      <td>Chef;React Native</td>
+      <td>React Native</td>
+      <td>Sublime Text;TextMate;Vim;Xcode</td>
+      <td>MacOS</td>
+      <td>I do not use containers</td>
+      <td>Not at all</td>
+      <td>An irresponsible use of resources</td>
+      <td>Yes</td>
+      <td>Fortunately, someone else has that title</td>
+      <td>No</td>
+      <td>Reddit</td>
+      <td>Online</td>
+      <td>Username</td>
+      <td>I don't remember</td>
+      <td>A few times per month or weekly</td>
+      <td>Find answers to specific questions</td>
+      <td>1-2 times per week</td>
+      <td>They were about the same</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>Less than once per month or monthly</td>
+      <td>No, I knew that Stack Overflow had a job board...</td>
+      <td>No, and I don't know what those are</td>
+      <td>No, not really</td>
+      <td>A lot less welcome now than last year</td>
+      <td>NaN</td>
+      <td>43.0</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>Appropriate in length</td>
+      <td>Easy</td>
+    </tr>
+    <tr>
+      <th>69049</th>
+      <td>I am a developer by profession</td>
+      <td>False</td>
+      <td>Never</td>
+      <td>The quality of OSS and closed source software ...</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Australia</td>
+      <td>No</td>
+      <td>Bachelor’s degree (BA, BS, B.Eng., etc.)</td>
+      <td>Computer science, computer engineering, or sof...</td>
+      <td>Received on-the-job training in software devel...</td>
+      <td>2-9 employees</td>
+      <td>Developer, full-stack;Engineering manager</td>
+      <td>17</td>
+      <td>12</td>
+      <td>14</td>
+      <td>Slightly satisfied</td>
+      <td>Slightly satisfied</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I’m not actively looking, but I am open to new...</td>
+      <td>1-2 years ago</td>
+      <td>Write any code;Write code by hand (e.g., on a ...</td>
+      <td>No</td>
+      <td>Specific department or team I'd be working on;...</td>
+      <td>My job status changed (promotion, new job, etc.)</td>
+      <td>AUD</td>
+      <td>Australian dollar</td>
+      <td>0.0</td>
+      <td>Yearly</td>
+      <td>0.0</td>
+      <td>25.0</td>
+      <td>There is a schedule and/or spec (made by me or...</td>
+      <td>Lack of support from management;Time spent com...</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>Home</td>
+      <td>A little above average</td>
+      <td>Yes, because I see value in code review</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Bash/Shell/PowerShell;C;C#;Go;HTML/CSS;JavaScr...</td>
+      <td>Dart;Elixir;JavaScript;Kotlin;Python;R;Ruby;Rust</td>
+      <td>PostgreSQL;SQLite</td>
+      <td>Cassandra;PostgreSQL;Redis</td>
+      <td>Android;Arduino;Google Cloud Platform;iOS;Linu...</td>
+      <td>Google Cloud Platform;Heroku;Kubernetes;Linux;...</td>
+      <td>Ruby on Rails</td>
+      <td>Ruby on Rails;Vue.js</td>
+      <td>.NET;React Native</td>
+      <td>Ansible;Flutter;Hadoop;Pandas;React Native</td>
+      <td>IntelliJ;Visual Studio;Visual Studio Code;Xcode</td>
+      <td>MacOS</td>
+      <td>Production</td>
+      <td>NaN</td>
+      <td>A passing fad</td>
+      <td>No</td>
+      <td>Also Yes</td>
+      <td>Yes</td>
+      <td>Reddit</td>
+      <td>In real life (in person)</td>
+      <td>Username</td>
+      <td>2008</td>
+      <td>A few times per week</td>
+      <td>Find answers to specific questions</td>
+      <td>3-5 times per week</td>
+      <td>Stack Overflow was much faster</td>
+      <td>11-30 minutes</td>
+      <td>Not sure / can't remember</td>
+      <td>NaN</td>
+      <td>No, I knew that Stack Overflow had a job board...</td>
+      <td>No, I've heard of them, but I am not part of a...</td>
+      <td>No, not at all</td>
+      <td>Just as welcome now as I felt last year</td>
+      <td>NaN</td>
+      <td>34.0</td>
+      <td>Man</td>
+      <td>No</td>
+      <td>Straight / Heterosexual</td>
+      <td>White or of European descent</td>
+      <td>No</td>
+      <td>Appropriate in length</td>
+      <td>Easy</td>
+    </tr>
+    <tr>
+      <th>19340</th>
+      <td>I am not primarily a developer, but I write co...</td>
+      <td>True</td>
+      <td>Less than once a month but more than once per ...</td>
+      <td>OSS is, on average, of HIGHER quality than pro...</td>
+      <td>NaN</td>
+      <td>Austria</td>
+      <td>Yes, full-time</td>
+      <td>Bachelor’s degree (BA, BS, B.Eng., etc.)</td>
+      <td>Fine arts or performing arts (ex. graphic desi...</td>
+      <td>Taken an online course in programming or softw...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>20</td>
+      <td>5</td>
+      <td>Neither satisfied nor dissatisfied</td>
+      <td>Slightly satisfied</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I’m not actively looking, but I am open to new...</td>
+      <td>3-4 years ago</td>
+      <td>Interview with people in peer roles;Interview ...</td>
+      <td>No</td>
+      <td>Office environment or company culture;Opportun...</td>
+      <td>I was preparing for a job search</td>
+      <td>CHF</td>
+      <td>Swiss franc</td>
+      <td>0.0</td>
+      <td>Monthly</td>
+      <td>0.0</td>
+      <td>35.0</td>
+      <td>There is a schedule and/or spec (made by me or...</td>
+      <td>Being tasked with non-development work;Inadequ...</td>
+      <td>A few days each month</td>
+      <td>Office</td>
+      <td>Average</td>
+      <td>Yes, because I see value in code review</td>
+      <td>5.0</td>
+      <td>Yes, it's part of our process</td>
+      <td>Developers and management have nearly equal in...</td>
+      <td>I have a great deal of influence</td>
+      <td>Assembly;C;Elixir;HTML/CSS;Java;JavaScript;Pyt...</td>
+      <td>Clojure</td>
+      <td>PostgreSQL;SQLite</td>
+      <td>NaN</td>
+      <td>Arduino;Raspberry Pi</td>
+      <td>Arduino;Raspberry Pi</td>
+      <td>Other(s):</td>
+      <td>Other(s):</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>IntelliJ;Sublime Text</td>
+      <td>Linux-based</td>
+      <td>Development;Testing;Production;Outside of work...</td>
+      <td>NaN</td>
+      <td>Useful for immutable record keeping outside of...</td>
+      <td>No</td>
+      <td>Also Yes</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>In real life (in person)</td>
+      <td>Username</td>
+      <td>2010</td>
+      <td>A few times per week</td>
+      <td>Find answers to specific questions;Learn how t...</td>
+      <td>1-2 times per week</td>
+      <td>They were about the same</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>I have never participated in Q&amp;A on Stack Over...</td>
+      <td>Yes</td>
+      <td>No, and I don't know what those are</td>
+      <td>Neutral</td>
+      <td>Just as welcome now as I felt last year</td>
+      <td>NaN</td>
+      <td>32.0</td>
+      <td>Man</td>
+      <td>No</td>
+      <td>Straight / Heterosexual</td>
+      <td>White or of European descent</td>
+      <td>No</td>
+      <td>Appropriate in length</td>
+      <td>Easy</td>
+    </tr>
+    <tr>
+      <th>16214</th>
+      <td>I am not primarily a developer, but I write co...</td>
+      <td>True</td>
+      <td>Less than once per year</td>
+      <td>OSS is, on average, of HIGHER quality than pro...</td>
+      <td>Employed full-time</td>
+      <td>Bangladesh</td>
+      <td>Yes, part-time</td>
+      <td>Master’s degree (MA, MS, M.Eng., MBA, etc.)</td>
+      <td>A natural science (ex. biology, chemistry, phy...</td>
+      <td>NaN</td>
+      <td>20 to 99 employees</td>
+      <td>Engineer, data;Engineering manager;Product man...</td>
+      <td>20</td>
+      <td>16</td>
+      <td>20</td>
+      <td>Slightly satisfied</td>
+      <td>Slightly satisfied</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I am not interested in new job opportunities</td>
+      <td>3-4 years ago</td>
+      <td>Interview with people in peer roles</td>
+      <td>No</td>
+      <td>Financial performance or funding status of the...</td>
+      <td>I was preparing for a job search</td>
+      <td>EUR</td>
+      <td>European Euro</td>
+      <td>0.0</td>
+      <td>Yearly</td>
+      <td>0.0</td>
+      <td>10.0</td>
+      <td>There's no schedule or spec; I work on what se...</td>
+      <td>Lack of support from management;Meetings;Time ...</td>
+      <td>Less than once per month / Never</td>
+      <td>Other place, such as a coworking space or cafe</td>
+      <td>Far above average</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>No, and I'm glad we don't</td>
+      <td>Developers and management have nearly equal in...</td>
+      <td>I have a great deal of influence</td>
+      <td>Java;PHP;Other(s):</td>
+      <td>Java;PHP;Other(s):</td>
+      <td>MariaDB;MySQL</td>
+      <td>MariaDB;MySQL</td>
+      <td>Android;Linux;Raspberry Pi;Windows;WordPress</td>
+      <td>Android;Linux;Raspberry Pi;Windows;WordPress</td>
+      <td>jQuery;Spring</td>
+      <td>jQuery;Spring</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Android Studio;Eclipse;IntelliJ;NetBeans</td>
+      <td>Linux-based</td>
+      <td>I do not use containers</td>
+      <td>Not at all</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>What?</td>
+      <td>WhatsApp</td>
+      <td>Neither</td>
+      <td>NaN</td>
+      <td>2008</td>
+      <td>Daily or almost daily</td>
+      <td>Find answers to specific questions;Contribute ...</td>
+      <td>3-5 times per week</td>
+      <td>They were about the same</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>A few times per month or weekly</td>
+      <td>Yes</td>
+      <td>No, I've heard of them, but I am not part of a...</td>
+      <td>Neutral</td>
+      <td>Just as welcome now as I felt last year</td>
+      <td>Tech articles written by other developers;Cour...</td>
+      <td>99.0</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Too long</td>
+      <td>Easy</td>
+    </tr>
+    <tr>
+      <th>29355</th>
+      <td>I am a developer by profession</td>
+      <td>True</td>
+      <td>Never</td>
+      <td>OSS is, on average, of LOWER quality than prop...</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Bosnia and Herzegovina</td>
+      <td>Yes, part-time</td>
+      <td>Some college/university study without earning ...</td>
+      <td>Computer science, computer engineering, or sof...</td>
+      <td>Taught yourself a new language, framework, or ...</td>
+      <td>Just me - I am a freelancer, sole proprietor, ...</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>10</td>
+      <td>6</td>
+      <td>Neither satisfied nor dissatisfied</td>
+      <td>Neither satisfied nor dissatisfied</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I am not interested in new job opportunities</td>
+      <td>Less than a year ago</td>
+      <td>Interview with people in senior / management r...</td>
+      <td>No</td>
+      <td>Industry that I'd be working in;Specific depar...</td>
+      <td>Something else changed (education, award, medi...</td>
+      <td>BAM</td>
+      <td>Bosnia and Herzegovina convertible mark</td>
+      <td>0.0</td>
+      <td>Yearly</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>There's no schedule or spec; I work on what se...</td>
+      <td>Being tasked with non-development work;Inadequ...</td>
+      <td>It's complicated</td>
+      <td>Other place, such as a coworking space or cafe</td>
+      <td>Far above average</td>
+      <td>Yes, because I see value in code review</td>
+      <td>20.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Bash/Shell/PowerShell;C;C++;Python;Ruby;Other(s):</td>
+      <td>Assembly;Bash/Shell/PowerShell;C;C++;C#;Go;Oth...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Linux;MacOS;Microsoft Azure;Raspberry Pi;Windows</td>
+      <td>Android;Arduino;AWS;iOS;Linux;MacOS;Raspberry ...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pandas;TensorFlow;Torch/PyTorch;Unity 3D;Unrea...</td>
+      <td>.NET;Torch/PyTorch;Unity 3D</td>
+      <td>Android Studio;Emacs;PyCharm;Visual Studio;Vis...</td>
+      <td>Linux-based</td>
+      <td>I do not use containers</td>
+      <td>NaN</td>
+      <td>A passing fad</td>
+      <td>Yes</td>
+      <td>Also Yes</td>
+      <td>Yes</td>
+      <td>YouTube</td>
+      <td>In real life (in person)</td>
+      <td>Username</td>
+      <td>2013</td>
+      <td>A few times per month or weekly</td>
+      <td>Find answers to specific questions;Learn how t...</td>
+      <td>Less than once per week</td>
+      <td>They were about the same</td>
+      <td>NaN</td>
+      <td>Not sure / can't remember</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>No, and I don't know what those are</td>
+      <td>No, not really</td>
+      <td>Just as welcome now as I felt last year</td>
+      <td>Tech articles written by other developers;Indu...</td>
+      <td>22.0</td>
+      <td>NaN</td>
+      <td>No</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Too long</td>
+      <td>Easy</td>
+    </tr>
+    <tr>
+      <th>1685</th>
+      <td>I am a developer by profession</td>
+      <td>True</td>
+      <td>Less than once a month but more than once per ...</td>
+      <td>The quality of OSS and closed source software ...</td>
+      <td>Independent contractor, freelancer, or self-em...</td>
+      <td>Brazil</td>
+      <td>No</td>
+      <td>Bachelor’s degree (BA, BS, B.Eng., etc.)</td>
+      <td>Computer science, computer engineering, or sof...</td>
+      <td>Taken an online course in programming or softw...</td>
+      <td>Just me - I am a freelancer, sole proprietor, ...</td>
+      <td>Designer;Developer, full-stack;Developer, game...</td>
+      <td>8</td>
+      <td>16</td>
+      <td>3</td>
+      <td>Neither satisfied nor dissatisfied</td>
+      <td>Neither satisfied nor dissatisfied</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I’m not actively looking, but I am open to new...</td>
+      <td>Less than a year ago</td>
+      <td>Interview with people in peer roles;Interview ...</td>
+      <td>No</td>
+      <td>Specific department or team I'd be working on;...</td>
+      <td>I was preparing for a job search</td>
+      <td>BRL</td>
+      <td>Brazilian real</td>
+      <td>0.0</td>
+      <td>Monthly</td>
+      <td>0.0</td>
+      <td>40.0</td>
+      <td>There is a schedule and/or spec (made by me or...</td>
+      <td>Distracting work environment;Meetings;Toxic wo...</td>
+      <td>All or almost all the time (I'm full-time remote)</td>
+      <td>Home</td>
+      <td>Average</td>
+      <td>Yes, because I see value in code review</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Elixir;HTML/CSS;JavaScript;PHP;Python</td>
+      <td>C#;Kotlin;Python</td>
+      <td>Cassandra;MariaDB;MongoDB;PostgreSQL</td>
+      <td>Cassandra;MariaDB;MongoDB;PostgreSQL</td>
+      <td>Docker;Kubernetes;MacOS</td>
+      <td>Android;Linux;Windows</td>
+      <td>Laravel</td>
+      <td>Django;Flask;Laravel;Vue.js</td>
+      <td>Node.js</td>
+      <td>.NET;Node.js;Unity 3D;Other(s):</td>
+      <td>Android Studio;PHPStorm;PyCharm;Visual Studio ...</td>
+      <td>Windows</td>
+      <td>Development</td>
+      <td>NaN</td>
+      <td>Useful across many domains and could change ma...</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>WhatsApp</td>
+      <td>In real life (in person)</td>
+      <td>NaN</td>
+      <td>2010</td>
+      <td>A few times per week</td>
+      <td>Find answers to specific questions</td>
+      <td>1-2 times per week</td>
+      <td>Stack Overflow was slightly faster</td>
+      <td>11-30 minutes</td>
+      <td>Yes</td>
+      <td>Less than once per month or monthly</td>
+      <td>Yes</td>
+      <td>No, and I don't know what those are</td>
+      <td>No, not really</td>
+      <td>Just as welcome now as I felt last year</td>
+      <td>Tech articles written by other developers;Indu...</td>
+      <td>29.0</td>
+      <td>Man</td>
+      <td>No</td>
+      <td>Straight / Heterosexual</td>
+      <td>White or of European descent;Multiracial</td>
+      <td>No</td>
+      <td>Appropriate in length</td>
+      <td>Neither easy nor difficult</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 </body>
 
